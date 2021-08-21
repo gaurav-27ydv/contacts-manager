@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"
+    />
+
+    <title>Students</title>
+  </head>
+  <body>
+    <div class="container-fluid bg-dark">
+      <div class="text-center">
+        <h2 class="center-block">Student Management</h2>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ENROLL</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>CONTACT</th>
+          </tr>
+        </thead>
+        <% for(var i = 0; i < students.length; i++) {%>
+        <tr>
+          <td><%= students[i].enroll %></td>
+          <td><%= students[i].name %></td>
+          <td><%= students[i].email %></td>
+          <td><%= students[i].contact %></td>
+          <td>
+            <a href="/api/students/delete/<%= students[i]._id %>">
+              <button class="btn btn-danger">Delete</button>
+            </a>
+            <a href="/api/students/updateStudent/<%= students[i]._id %>">
+              <button class="btn btn-warning">Update</button>
+            </a>
+          </td>
+        </tr>
+        <% } %>
+      </table>
+      <div class="text-center">
+        <button class="btn btn-succes">
+          <a href="/api/students/add/">Add Students</a>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
